@@ -1,0 +1,17 @@
+body{border: 1px solid; margin: 0; background-color: darkslategray; font-family: 'Sansita', sans-serif;}
+.conteneur{max-width: 1000px; margin: 0 auto;}
+.clear{clear: both;}
+.float{float: left;}
+header{min-height: 140px; padding: 20px; color: white;}
+nav{min-height: 30px; background-color: steelblue; }
+section{min-height: 500px; background-color: white; padding: 20px;}
+footer{min-height: 100px; color: white; padding_top: 20px;}
+img{max-width: 100%; border-radius: 25%; height: auto!important;}
+p{margin: 0;}
+
+/*******  REGIONS *******/
+#regionHeader1, #regionHeader3{width: 25%; box-sizing: border-box;}
+#regionHeader2{width: 50%; box-sizing: :border-box; padding: 10px}
+
+
+.contentEditable{z-index: 999;}
