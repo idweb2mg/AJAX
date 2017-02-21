@@ -1,0 +1,61 @@
+<!-- 
+	Les statuts de la requete HTTP:
+	===============================
+	0 : L'objet AJAX a été créé mais pas encore initialisé (la méthode open n'a pas encore été appelée)
+	1: L'objet AJAX a été créé mais pas encore envoyé (la méthode send...)
+	2: La méthode send vient d'être appelée
+	3: Le serveur traite les informations et a comencé à renvoyer les données
+	4: Le serveur a fini son travil. Toutes les données ont été reçues.
+
+	https://fr.wikipedia.org/wiki/Liste_des_codes_HTTP
+
+	ajax.onreadystatechange ==> événement qui permet de décomposer les statuts de la requête et ainsi d'avoir les informations pendant l'éxecution de la requête.
+	ajax.readyState 		==> donne l'état de l'opération en cours (0, 1, 2, 3, 4)
+	ajax.status 			==> donne le status HTTP de la requête (200, 301, ...)
+	ajax.statusText 		==>  donne le mot qui correspond au statut http 
+	ajax.responseText 		==> pour récupérer la répopnse.
+
+
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<div style="width: 1000px; margin: 0 auto;">
+			<div id="contenu">
+				<h1 id="demo" style="color: green;">Changer le contenu</h1>
+				
+
+				<button type="button" id="action">Changer</button>
+			</div>
+			
+		</div>
+
+		<script type="text/javascript">
+			document.getElementById("action").addEventListener("click", loadDoc) ;
+
+			function loadDoc(){
+				var xhttp = new XMLHttpRequest() ; //instanciation de l'objet XMLHttpRequest.
+
+				xhttp.onreadystatechange = function(){
+					console.log(xhttp) ;
+					console.log(xhttp.responseText) ;
+					if (xhttp.readyState == 4 && xhttp.status == 200) {
+						document.getElementById("demo").innerHTML = xhttp.responseText ;
+
+
+					}
+				}
+				xhttp.open("GET", "contenu.txt", true) ;
+				xhttp.send() ;
+
+
+			} <!-- function loadDoc  -->
+
+
+		</script>
+	</body>
+
+</html>
